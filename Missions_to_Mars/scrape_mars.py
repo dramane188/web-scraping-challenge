@@ -8,11 +8,11 @@ import time
 
 
 # DB Setup
-# 
+
 
 client = pymongo.MongoClient('mongodb://localhost:27017')
 db = client.mars_db
-collection = db.mars 
+collection = db.mars
 
 
 def init_browser():
@@ -93,6 +93,7 @@ def scrape():
 
 
     # Return results
+    
     mars_data ={
 		'news_title' : news_title,
 		'summary': news_para,
@@ -107,4 +108,12 @@ def scrape():
         'fact_url': murl,
         'hemisphere_url': mhurl,
         }
+
+
+    for result in results:
+        print(result)
+        
     collection.insert(mars_data)
+    
+print("All done!")
+    
